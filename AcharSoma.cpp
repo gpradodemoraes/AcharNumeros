@@ -18,7 +18,7 @@ public:
 		for(const double& number : listOfNumbers)
 			cout << "hello " << number << endl;
 
-		const double length = pow(2,listOfNumbers.size()) - 1;
+		const double length = pow(2, listOfNumbers.size()) - 1;
 		cout << "size " << length << endl;
 
 		for(unsigned n = 1; n <= length; n++) {
@@ -46,18 +46,23 @@ int main(int argc,char *argv[]) {
 	GetNumbersFromFile getnumbers;
 	int i = 1;
 	while(i < argc) {
-		cout << argv[i] << endl;
 		getnumbers.filename = argv[i];
 		getnumbers.read_file();
 		i++;
-	}	
+	}
+	AcharSoma find;
+	find.listOfNumbers = getnumbers.listOfNumbers;
+
+	// nesse momento getnumbers.listOfNumbers está zerado pois eu ainda preciso converter as strings para double!
+
+	//for(const double& number : getnumbers.listOfNumbers)
+	//	find.listOfNumbers.push_back(number);
+	find.do_numbers();
+
 	//	for (string w : getnumbers.) {
 	//        cout << "|" << w << "|" << endl;
 	//	}
-	//AcharSoma find;
-	//find.listOfNumbers = {1.1,2.2,3.3,4.4};
-	//find.do_numbers();
-	//return 0;
+	return 0;
 
 
 }

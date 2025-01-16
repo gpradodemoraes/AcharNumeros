@@ -101,3 +101,6 @@ insert_final_newline = true
 
 [*.md]
 trim_trailing_whitespace = false
+
+[{.editorconfig,run_cmake_firsttime.sh,CMakeLists.txt,.gitignore}]
+end_of_line = lf

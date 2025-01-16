@@ -28,6 +28,8 @@ public:
 		for(string w : words) {
 			cout << "|" << w << "|" << endl;
 		}
+		// transferir todos os 'words' para listOfNumbers
+
 		return true;
 	}
 private:

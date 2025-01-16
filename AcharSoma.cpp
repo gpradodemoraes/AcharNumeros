@@ -53,7 +53,7 @@ int main(int argc,char *argv[]) {
 	AcharSoma find;
 	find.listOfNumbers = getnumbers.listOfNumbers;
 
-	// nesse momento getnumbers.listOfNumbers está zerado pois eu ainda preciso converter as strings para double!
+	// nesse momento getnumbers.listOfNumbers estÃ¡ zerado pois eu ainda preciso converter as strings para double!
 
 	//for(const double& number : getnumbers.listOfNumbers)
 	//	find.listOfNumbers.push_back(number);
@@ -72,7 +72,7 @@ int main(int argc,char *argv[]) {
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
 // Debug program: F5 or Debug > Start Debugging menu
 
-// Tips for Getting Started: 
+// Tips for Getting Started:
 //   1. Use the Solution Explorer window to add/manage files
 //   2. Use the Team Explorer window to connect to source control
 //   3. Use the Output window to see build output and other messages

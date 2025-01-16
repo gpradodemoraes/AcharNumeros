@@ -1,6 +1,6 @@
 #!/bin/bash
 
-test -f BUILD && mkdir BUILD
+test ! -d BUILD && mkdir BUILD
 
 cd BUILD
 

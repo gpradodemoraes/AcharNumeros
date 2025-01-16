@@ -34,7 +34,7 @@ public:
 				j++;
 			}
 			cout << " SOMA: " << soma << endl;
-			cout << "============= " << endl;
+			//cout << "============= " << endl;
 
 
 		}

@@ -25,10 +25,19 @@ public:
 			cout << "Unable to open file" << endl;
 			return false;
 		}
-		for(string w : words) {
-			cout << "|" << w << "|" << endl;
-		}
 		// transferir todos os 'words' para listOfNumbers
+		//for(string w : words) {
+		while(!words.empty()) {
+			//cout << "|" << w << "|" << endl;
+			listOfNumbers.push_back(
+					stod(
+						words.back()
+						));
+			words.pop_back();
+		}
+		for(double d : listOfNumbers) {
+			cout << "|" << d << "|" << endl;
+		}
 
 		return true;
 	}

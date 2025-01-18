@@ -8,14 +8,19 @@ using namespace std;
 #include<vector>
 #include<map>
 #include<forward_list>
+#include<list>
 #include "ReadFile.cpp"
+#include<utility>
 //#include <typeinfo>
+
+//typedef forward_list<double>* PONTEIROLISTADOUBLE;
+//typedef forward_list<PONTEIROLISTADOUBLE>* PONTEIROLISTADEPONTEIROS;
 
 
 class AcharSoma {
 public:
 	vector<double> listOfNumbers;
-	map<double, forward_list<forward_list<double>*>*> somasHash;
+	map<double,list<list<double>>> somasHash;
 
 	void do_numbers() {
 		for(const double& number : listOfNumbers)
@@ -28,7 +33,7 @@ public:
 			int j = 0;
 			double soma = 0.0;
 
-			forward_list<double> elementos_da_soma;
+			list<double> elementos_da_soma;
 			unsigned p;
 			while((p = (unsigned)pow(2,j)) <= n) {
 				if(p & n) {
@@ -44,16 +49,19 @@ public:
 			// primeiro devemos ver se já temos um map com essa chave
 			if(somasHash.find(soma) == somasHash.end()) {
 				// a chave soma NÃO existe!
-				//somasHash.insert(pair<double,forward_list<forward_list<double>*>*>(soma,&elementos_da_soma));
+				list<list<double>> listaDeListas;
+				listaDeListas.push_back(elementos_da_soma);
+				somasHash.insert(pair<double,list<list<double>>>(soma,listaDeListas));
+				//somasHash.insert(pair<double,std::reference_wrapper<PONTEIROLISTADEPONTEIROS>>(soma,&elementos_da_soma));
 				//somasHash.insert(std::pair<double,forward_list<double>*>(soma,&elementos_da_soma));
 				//somasHash.insert({soma,&elementos_da_soma});
-				somasHash[soma] = &elementos_da_soma;
+				//somasHash[soma] = &elementos_da_soma;
 				//somasHash.emplace(pair<double,forward_list<forward_list<double>*>*>(soma,&elementos_da_soma));
 			} else {
 				// a chave soma existe! Basta inserir no fim da lista a referência para a lista de elementos
 				//forward_list<double>& referencia_para_lista_de_uma_soma = (*somasHash.find(soma)).second;
-				forward_list<forward_list<double>*>* referencia_para_lista_de_uma_soma = (*somasHash.find(soma)).second;
-				referencia_para_lista_de_uma_soma->push_front(&elementos_da_soma);
+				list<list<double>> referencia_para_lista_de_uma_soma = (*somasHash.find(soma)).second;
+				referencia_para_lista_de_uma_soma.push_front(elementos_da_soma);
 				//somasHash.find(soma).push_front(&elementos_da_soma);
 				//somasHash.find(soma).push_front(&elementos_da_soma);
 

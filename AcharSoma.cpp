@@ -20,27 +20,28 @@ using namespace std;
 class AcharSoma {
 public:
 	vector<double> listOfNumbers;
-	map<double,list<list<double>>> somasHash;
+	map<double,vector<vector<double>>> somasHash;
 
-	void do_numbers() {
+	map<double,vector<vector<double>>> do_numbers() {
 		for(const double& number : listOfNumbers)
 			cout << "hello " << number << endl;
 
 		const double length = pow(2, listOfNumbers.size()) - 1;
 		cout << "size " << length << endl;
-
+		vector<double> elementos_da_soma;
+		
 		for(unsigned n = 1; n <= length; n++) {
 			int j = 0;
 			double soma = 0.0;
 
-			list<double> elementos_da_soma;
+			
 			unsigned p;
 			while((p = (unsigned)pow(2,j)) <= n) {
 				if(p & n) {
 					cout << listOfNumbers[j] << " ";
 					soma += listOfNumbers[j];
 					// colocar o número que faz parte da soma na lista de elementos
-					elementos_da_soma.push_front(listOfNumbers[j]);
+					elementos_da_soma.push_back(listOfNumbers[j]);
 				}
 				j++;
 			}
@@ -49,9 +50,9 @@ public:
 			// primeiro devemos ver se já temos um map com essa chave
 			if(somasHash.find(soma) == somasHash.end()) {
 				// a chave soma NÃO existe!
-				list<list<double>> listaDeListas;
+				vector<vector<double>> listaDeListas;
 				listaDeListas.push_back(elementos_da_soma);
-				somasHash.insert(pair<double,list<list<double>>>(soma,listaDeListas));
+				somasHash.insert(pair<double,vector<vector<double>>>(soma,listaDeListas));
 				//somasHash.insert(pair<double,std::reference_wrapper<PONTEIROLISTADEPONTEIROS>>(soma,&elementos_da_soma));
 				//somasHash.insert(std::pair<double,forward_list<double>*>(soma,&elementos_da_soma));
 				//somasHash.insert({soma,&elementos_da_soma});
@@ -60,20 +61,22 @@ public:
 			} else {
 				// a chave soma existe! Basta inserir no fim da lista a referência para a lista de elementos
 				//forward_list<double>& referencia_para_lista_de_uma_soma = (*somasHash.find(soma)).second;
-				list<list<double>> referencia_para_lista_de_uma_soma = (*somasHash.find(soma)).second;
-				referencia_para_lista_de_uma_soma.push_front(elementos_da_soma);
+				vector<vector<double>> &referencia_para_lista_de_uma_soma = (*somasHash.find(soma)).second;
+				referencia_para_lista_de_uma_soma.push_back(elementos_da_soma);
+				cout << "hello ";
 				//somasHash.find(soma).push_front(&elementos_da_soma);
 				//somasHash.find(soma).push_front(&elementos_da_soma);
 
 			}
+			elementos_da_soma.erase(elementos_da_soma.begin(),elementos_da_soma.end());
 
 			cout << " SOMA: " << soma << endl;
 			//cout << "============= " << endl;
 
 
 		}
+	return somasHash;
 	}
-
 };
 
 int main(int argc,char *argv[]) {
@@ -91,7 +94,7 @@ int main(int argc,char *argv[]) {
 
 	//for(const double& number : getnumbers.listOfNumbers)
 	//	find.listOfNumbers.push_back(number);
-	find.do_numbers();
+	map<double,vector<vector<double>>> hash = find.do_numbers();
 
 	//	for (string w : getnumbers.) {
 	//        cout << "|" << w << "|" << endl;

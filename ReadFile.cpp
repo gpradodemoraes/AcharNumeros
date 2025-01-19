@@ -11,6 +11,9 @@ public:
 	char* filename;
 	vector<double> listOfNumbers;
 
+	vector<double>& getListOfNumbers() {
+		return listOfNumbers;
+	}
 	bool read_file() {
 		//ifstream myfile("file1");
 		ifstream myfile(filename);

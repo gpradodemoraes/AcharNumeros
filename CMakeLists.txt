@@ -1,9 +1,12 @@
 cmake_minimum_required(VERSION 3.10)
-project(AcharNumeros)
+project(Practice)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
-add_executable(AcharNumeros ../AcharSoma.cpp ../ReadFile.cpp)
-add_custom_command(TARGET AcharNumeros
+add_subdirectory(lib/AcharSoma)
+list(APPEND EXTRA_INCLUDES "${PROJECT_SOURCE_DIR}/lib/AcharSoma")
+add_executable(Practice Main.cpp)
+target_link_libraries(Practice PUBLIC AcharSoma)
+add_custom_command(TARGET Practice
                    POST_BUILD
-                   COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:AcharNumeros> ..)
+                   COMMAND ${CMAKE_COMMAND} -E copy $<TARGET_FILE:Practice> ..)
 

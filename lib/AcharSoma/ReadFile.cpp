@@ -1,20 +1,13 @@
+#include "ReadFile.h"
 #include <iostream>
-using namespace std;
-//using std::vector;
-#include<vector>
 #include <fstream>
 #include <sstream>
 
-
-class GetNumbersFromFile {
-public:
-	char* filename;
-	vector<double> listOfNumbers;
-
-	vector<double>& getListOfNumbers() {
+static vector<string> words;
+ReadFile::vector<double>& getListOfNumbers() {
 		return listOfNumbers;
-	}
-	bool read_file() {
+}
+ReadFile::bool read_file() {
 		//ifstream myfile("file1");
 		ifstream myfile(filename);
 		string line;
@@ -44,26 +37,23 @@ public:
 
 		return true;
 	}
-private:
-	vector<string> words;
-	void split_sentence(string sen) {
+}
+ReadFile::void split_sentence(string sen) {
 
-		// Create a stringstream object
-		stringstream ss(sen);
+	// Create a stringstream object
+	stringstream ss(sen);
 
-		// Variable to hold each word
-		string word;
+	// Variable to hold each word
+	string word;
 
-		// Vector to store the words
-		//vector<string> words;
+	// Vector to store the words
+	//vector<string> words;
 
-		// Extract words from the sentence
-		while(ss >> word) {
+	// Extract words from the sentence
+	while(ss >> word) {
 
-			// Add the word to the vector
-			words.push_back(word);
-		}
-
+		// Add the word to the vector
+		words.push_back(word);
 	}
-};
+}
 

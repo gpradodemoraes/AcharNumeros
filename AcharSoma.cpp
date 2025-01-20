@@ -1,6 +1,5 @@
 // AcharSoma.cpp : This file contains the 'main' function. Program execution begins and ends there.
 //
-
 #include <iostream>
 using namespace std;
 //using std::vector;
@@ -23,23 +22,23 @@ public:
 	map<double,vector<vector<double>*>*> somasHash;
 
 	map<double,vector<vector<double>*>*> do_numbers() {
-		for(const double& number : listOfNumbers)
-			cout << "hello " << number << endl;
+		// for(const double& number : listOfNumbers)
+		// 	cout << "hello " << number << '\n';
 
 		const double length = pow(2, listOfNumbers.size()) - 1;
-		cout << "size " << length << endl;
-		
-		
+		//cout << "size " << length << '\n';
+
+
 		for(unsigned n = 1; n <= length; n++) {
 			int j = 0;
 			double soma = 0.0;
 
-			
+
 			unsigned p;
 			vector<double>* elementos_da_soma = new vector<double>();
 			while((p = (unsigned)pow(2,j)) <= n) {
 				if(p & n) {
-					cout << listOfNumbers[j] << " ";
+					//cout << listOfNumbers[j] << " ";
 					soma += listOfNumbers[j];
 					// colocar o número que faz parte da soma na lista de elementos
 					elementos_da_soma->push_back(listOfNumbers[j]);
@@ -70,7 +69,7 @@ public:
 			}
 			//elementos_da_soma.erase(elementos_da_soma.begin(),elementos_da_soma.end());
 
-			cout << " SOMA: " << soma << endl;
+			//cout << " SOMA: " << soma << endl;
 			//cout << "============= " << endl;
 
 
@@ -100,19 +99,21 @@ int main(int argc,char *argv[]) {
 	for(soma = hash.begin(); soma != hash.end(); soma++){
 		vector<vector<double>*>* array_de_todas_as_somas_que_dao_soma = soma->second;
 		for(vector<double>* parcelas : *array_de_todas_as_somas_que_dao_soma) {
-			cout << soma->first << " = ";
+			//cout << soma->first << " = ";
+			printf("%.2f = ", soma->first);
 			for(vector<double>::iterator it = parcelas->begin(); it != parcelas->end(); it++) {
 			//for(double d : *parcelas) {
-				cout << *it;
+				//cout << *it;
+				printf("%.2f", *it);
 				if(it == parcelas->end() - 1) {
-					cout << endl;
+					printf("\n");
 				} else {
-					cout << " + ";
+					printf(" + ");
 				}
 			}
 		}
-		cout << endl;
-		
+		cout << '\n';
+
 	}
 
 	//	for (string w : getnumbers.) {

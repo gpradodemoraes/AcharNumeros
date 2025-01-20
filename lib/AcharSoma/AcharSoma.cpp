@@ -4,14 +4,13 @@
 #include<cmath>
 #include<forward_list>
 #include<list>
-#include "ReadFile.cpp"
+#include "GetNumbersFromFile.h"
 #include<utility>
-
 
 //	vector<double> listOfNumbers;
 //	map<double,vector<vector<double>*>*> somasHash;
 
-AcharSoma::map<double,vector<vector<double>*>*> do_numbers() {
+map<double,vector<vector<double>*>*> AcharSoma::do_numbers() {
 		// for(const double& number : listOfNumbers)
 		// 	cout << "hello " << number << '\n';
 

@@ -1,3 +1,11 @@
+#include "AcharSoma.h"
+#include "GetNumbersFromFile.h"
+#include <vector>
+#include <stdio.h>
+
+using namespace std;
+
+
 int main(int argc,char *argv[]) {
 	GetNumbersFromFile getnumbers;
 	int i = 1;
@@ -19,11 +27,9 @@ int main(int argc,char *argv[]) {
 	for(soma = hash.begin(); soma != hash.end(); soma++){
 		vector<vector<double>*>* array_de_todas_as_somas_que_dao_soma = soma->second;
 		for(vector<double>* parcelas : *array_de_todas_as_somas_que_dao_soma) {
-			//cout << soma->first << " = ";
 			printf("%.2f = ", soma->first);
 			for(vector<double>::iterator it = parcelas->begin(); it != parcelas->end(); it++) {
 			//for(double d : *parcelas) {
-				//cout << *it;
 				printf("%.2f", *it);
 				if(it == parcelas->end() - 1) {
 					printf("\n");
@@ -32,7 +38,7 @@ int main(int argc,char *argv[]) {
 				}
 			}
 		}
-		cout << '\n';
+		printf("\n");
 
 	}
 

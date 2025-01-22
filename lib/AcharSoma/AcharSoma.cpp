@@ -10,6 +10,29 @@
 //	vector<double> listOfNumbers;
 //	map<double,vector<vector<double>*>*> somasHash;
 
+bool AcharSoma::print_result() {
+	if(somasHash.empty()) {
+		return false;
+	}
+	map<double,vector<vector<double>*>*>::iterator soma;
+	for(soma = somasHash.begin(); soma != somasHash.end(); soma++) {
+		vector<vector<double>*>* array_de_todas_as_somas_que_dao_soma = soma->second;
+		for(vector<double>* parcelas : *array_de_todas_as_somas_que_dao_soma) {
+			printf("%.2f = ", soma->first);
+			for(vector<double>::iterator it = parcelas->begin(); it != parcelas->end(); it++) {
+			//for(double d : *parcelas) {
+				printf("%.2f", *it);
+				if(it == parcelas->end() - 1) {
+					printf("\n");
+				} else {
+					printf(" + ");
+				}
+			}
+		}
+		printf("\n");
+	}
+	return true;
+}
 map<double,vector<vector<double>*>*> AcharSoma::do_numbers() {
 		// for(const double& number : listOfNumbers)
 		// 	cout << "hello " << number << '\n';

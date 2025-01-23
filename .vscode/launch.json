@@ -40,10 +40,11 @@
                     "ignoreFailures": true
                 },
                 {
-                    "description": "Set Disassembly Flavor to Intel",
-                    "text": "-gdb-set disassembly-flavor intel",
-                    "ignoreFailures": true
-                }
+                    "description": "Test",
+                    "text": "python import sys;sys.path.insert(0, 'C:\\Users\\gabriel.moraes\\cygwin64\\usr\\share\\gdb\\python');sys.path.insert(0, 'C:\\Users\\gabriel.moraes\\cygwin64\\home\\gabriel.moraes\\python');from libstdcxx.v6.printers import register_libstdcxx_printers;register_libstdcxx_printers(None)",
+                    "ignoreFailures": false
+                },
+
             ],
             "preLaunchTask": "LetsCallCmakeBuild"
         }

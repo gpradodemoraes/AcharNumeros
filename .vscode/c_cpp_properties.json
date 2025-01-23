@@ -1,0 +1,23 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "C:\\Users\\gabriel.moraes\\cygwin64\\home\\gabriel.moraes\\AcharNumeros\\lib\\**\\**",
+                "${workspaceFolder}/lib/AcharSoma/**",
+            ],
+            "browse": {
+        "limitSymbolsToIncludedHeaders": true,
+        "databaseFilename": ""
+      },
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "compilerPath": "C:\\Users\\gabriel.moraes\\cygwin64\\bin\\g++.exe",
+            "cppStandard": "c++11"
+        }
+    ],
+    "version": 4
+}

@@ -9,6 +9,7 @@ using namespace std;
 int main(int argc,char *argv[]) {
 	GetNumbersFromFile getnumbers;
 	int i = 1;
+	printf("hello there\n");
 	while(i < argc) {
 		getnumbers.filename = argv[i];
 		getnumbers.read_file();

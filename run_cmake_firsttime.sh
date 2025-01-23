@@ -1,8 +1,8 @@
 #!/bin/bash
 
-test ! -d BUILD && mkdir BUILD
+test ! -d mybuild && mkdir mybuild
 
-cd BUILD
+cd mybuild
 
-cmake .. && cmake --build .
+cmake -DCMAKE_BUILD_TYPE=Debug .. && cmake --build .
 
